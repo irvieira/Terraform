@@ -6,6 +6,17 @@ terraform {
   }
 }
 
+provider "nsxt" {
+  host                 = var.nsxt_host
+  username             = var.nsxt_username
+  password             = var.nsxt_password
+  allow_unverified_ssl = true
+  max_retries          = 10
+  global_manager  = true
+  retry_min_delay = 500
+  retry_max_delay = 1000
+}
+
 data "nsxt_compute_manager" "vcenter" {
 }
 

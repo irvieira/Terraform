@@ -16,7 +16,8 @@ variable "vsphere_password" {}
 # NSX-T Manager Deployment 
 variable "mgmt_pg" { default = "vSphere Management" } 
 variable "vm_name" { default = "MTLNSX50002" } 
-variable "local_ovf_path" { default = "Z:\\Files\\OVA\\VMWare\\NSX\\nsx-unified-appliance-4.1.0.2.0.21761723-le.ova" } 
+#variable "local_ovf_path" { default = "Z:\\Files\\OVA\\VMWare\\NSX\\nsx-unified-appliance-4.1.0.2.0.21761723-le.ova" }## SMB
+variable "local_ovf_path" { default = "/OVA/nsx-unified-appliance-4.1.0.2.0.21761723-le.ova" } 
 variable "deployment_option" { default = "extra_small" } # valid deployments are: extra_small, small, medium, large 
 variable "nsx_role" { default = "NSX Manager" } # valid roles are NSX Manager, NSX Global Manager 
 variable "nsx_ip_0" { default = "172.16.11.72" } 
