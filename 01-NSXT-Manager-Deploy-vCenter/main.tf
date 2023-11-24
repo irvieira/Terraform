@@ -48,6 +48,7 @@ data "vsphere_ovf_vm_template" "ovfLocal" {
 # Deployment of VM from Local OVA
 resource "vsphere_virtual_machine" "nsxt01" {
   name                 = var.vm_name
+  folder               = var.vm_folder
   datacenter_id        = data.vsphere_datacenter.datacenter.id
   datastore_id         = data.vsphere_ovf_vm_template.ovfLocal.datastore_id
   host_system_id       = data.vsphere_ovf_vm_template.ovfLocal.host_system_id
