@@ -6,6 +6,13 @@ terraform {
   }
 }
 
+provider "vsphere" {
+  vsphere_server       = var.vsphere_server
+  user                 = var.vsphere_user
+  password             = var.vsphere_password
+  allow_unverified_ssl = true
+}
+
 provider "nsxt" {
   host                 = var.nsxt_host
   username             = var.nsxt_username
@@ -17,18 +24,23 @@ provider "nsxt" {
   retry_max_delay = 1000
 }
 
-data "nsxt_compute_manager" "vcenter" {
+#data "nsxt_compute_manager" "test_vcenter" {
+#}
+
+data "vsphere_host_thumbprint" "thumbprint_vcenter" {
+  address = "vcsa.vmware.local"
+  insecure = true
 }
 
-resource "nsxt_compute_manager" "test" {
+resource "nsxt_compute_manager" "vcenter" {
   description  = "Terraform provisioned Compute Manager"
-  display_name = "MTLVC50001"
+  display_name = "VCSA"
   #tag {
   #  scope = "scope1"
   #  tag   = "tag1"
   #}
-
-  server = "mtlvc50001.vmware.cloud"
+  access_level_for_oidc = "FULL"
+  server = "vcsa.vmware.local"
 
   credential {
     username_password_login {
