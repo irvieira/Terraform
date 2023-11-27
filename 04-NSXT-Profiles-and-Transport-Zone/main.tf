@@ -61,7 +61,7 @@ resource "nsxt_policy_uplink_host_switch_profile" "uplink_host_switch_profile" {
 ### Profile Edge
 resource "nsxt_policy_uplink_host_switch_profile" "uplink_edge_switch_profile" {
   description  = "Uplink Edge switch profile provisioned by Terraform"
-  display_name = "1614-edge-tep-profile"
+  display_name = "1615-edge-tep-profile"
 
   mtu            = 9000
   transport_vlan = 1615
