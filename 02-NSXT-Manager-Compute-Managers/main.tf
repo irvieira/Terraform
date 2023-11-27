@@ -34,7 +34,7 @@ data "vsphere_host_thumbprint" "thumbprint_vcenter" {
 
 resource "nsxt_compute_manager" "vcenter" {
   description  = "Terraform provisioned Compute Manager"
-  display_name = "VCSA"
+  display_name = "vCenter"
   #tag {
   #  scope = "scope1"
   #  tag   = "tag1"
